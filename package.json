@@ -1,0 +1,9 @@
+{
+  "name": "my-node-ts-api-seed",
+  "version": "1.0.0",
+  "description": "Seed to create APIs with TypeScript, Jest, DDD and SOLID",
+  "main": "shared/infra/http/server.ts",
+  "repository": "git@github.com:luanglopes/my-node-ts-api-seed.git",
+  "author": "Luan Lopes <luanglopes@gmail.com>",
+  "license": "MIT"
+}
