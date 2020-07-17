@@ -5,5 +5,8 @@
   "main": "shared/infra/http/server.ts",
   "repository": "git@github.com:luanglopes/my-node-ts-api-seed.git",
   "author": "Luan Lopes <luanglopes@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  }
 }
