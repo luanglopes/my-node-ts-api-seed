@@ -8,7 +8,7 @@ import profileValidators from '../validators/profile.validator'
 const profileRouter = Router()
 const profileController = new ProfileController()
 
-profileRouter.get('/', profileController.index)
+profileRouter.get('/', ensureAuthenticated, profileController.index)
 
 profileRouter.put(
   '/',
