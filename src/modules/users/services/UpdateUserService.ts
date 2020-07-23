@@ -47,10 +47,10 @@ export default class UpdateUserService {
       data.password = await this.hashProvider.generateHash(data.password)
     }
 
-    Object.assign(user, data)
+    const userData = { ...user, ...data, id }
 
-    await this.usersRepository.update(user)
+    const updatedUser = await this.usersRepository.update(userData)
 
-    return user
+    return updatedUser
   }
 }
