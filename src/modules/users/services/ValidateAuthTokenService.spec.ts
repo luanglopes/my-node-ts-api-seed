@@ -1,5 +1,5 @@
 import AppError from '@shared/errors/AppError'
-import VerifyAuthTokenService from './VerifyAuthTokenService'
+import VerifyAuthTokenService from './ValidateAuthTokenService'
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository'
 import FakeTokenProvider from '../providers/TokenProvider/fakes/FakeTokenProvider'
 import EUserRoles from '../enums/EUserRoles'
@@ -19,7 +19,7 @@ describe('VerifyAuthTokenService', () => {
     )
   })
 
-  it('should return a user if valid authotizationHeader is provided', async () => {
+  it('should return a user if valid token is provided', async () => {
     const user = await fakeUsersRepository.create({
       birthday: new Date(),
       email: 'jon@email.com',
@@ -29,42 +29,26 @@ describe('VerifyAuthTokenService', () => {
     })
     const token = await fakeTokenProvider.generateToken(user)
 
-    const result = await verifyAuthTokenService.execute({
-      authorizationHeader: `Bearer ${token}`,
-    })
+    const result = await verifyAuthTokenService.execute({ token })
 
     expect(result).toEqual(user)
   })
 
-  it('should throw an error if empty authorizationHeader is provided', async () => {
+  it('should throw an error if empty token is provided', async () => {
     await expect(
-      verifyAuthTokenService.execute({
-        authorizationHeader: '',
-      }),
+      verifyAuthTokenService.execute({ token: '' }),
     ).rejects.toBeInstanceOf(AppError)
   })
 
-  it('should throw an error if no token is provided on authorizationHeader', async () => {
-    await expect(
-      verifyAuthTokenService.execute({
-        authorizationHeader: 'Bearer ',
-      }),
-    ).rejects.toBeInstanceOf(AppError)
-  })
-
-  it('should throw an error if invalid token is provided on authorizationHeader', async () => {
+  it('should throw an error if invalid token is provided', async () => {
     const verifyTokenSpy = jest.spyOn(fakeTokenProvider, 'verifyToken')
 
     verifyTokenSpy.mockReturnValue(Promise.resolve(undefined))
 
-    await expect(
-      verifyAuthTokenService.execute({
-        authorizationHeader: 'Bearer invalid',
-      }),
-    ).rejects.toBeInstanceOf(AppError)
+    await expect(verifyAuthTokenService.execute({ token: 'invalid-token' })).rejects.toBeInstanceOf(AppError)
   })
 
-  it('should throw an error if a token for an invalid user provided on authorizationHeader', async () => {
+  it('should throw an error if a token for an invalid user is provided', async () => {
     const token = await fakeTokenProvider.generateToken({
       id: 1,
       password: '',
@@ -75,10 +59,6 @@ describe('VerifyAuthTokenService', () => {
       role: EUserRoles.user,
     })
 
-    await expect(
-      verifyAuthTokenService.execute({
-        authorizationHeader: `Bearer ${token}`,
-      }),
-    ).rejects.toBeInstanceOf(AppError)
+    await expect(verifyAuthTokenService.execute({ token })).rejects.toBeInstanceOf(AppError)
   })
 })

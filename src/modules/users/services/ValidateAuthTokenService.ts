@@ -12,7 +12,7 @@ interface ITokenPayload {
 }
 
 interface IRequest {
-  authorizationHeader?: string
+  token: string
 }
 
 @injectable()
@@ -24,17 +24,7 @@ export default class VerifyAuthTokenService {
     private authTokenProvider: IAuthTokenProvider,
   ) {}
 
-  async execute ({ authorizationHeader }: IRequest): Promise<IUserEntity> {
-    if (!authorizationHeader) {
-      throw new AppError('Token not provided', 401)
-    }
-
-    const [, token] = authorizationHeader.split(' ')
-
-    if (!token) {
-      throw new AppError('Token not provided', 401)
-    }
-
+  async execute ({ token }: IRequest): Promise<IUserEntity> {
     const decoded = await this.authTokenProvider.verifyToken(token)
 
     if (!decoded) {
