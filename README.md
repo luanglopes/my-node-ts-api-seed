@@ -8,7 +8,7 @@ Don't forget to update the config files. To help you, here is a checklist that y
 
 - [ ] Update `package.json` file with your project info
 - [ ] Update `ormconfig.example.json` file with your database config and credentials
-- [ ] Create an `ormconfig.json` file, this file is used to by the application to connect to database
+- [ ] Create a `ormconfig.json` file, this file is used to by the application to connect to database
 - [ ] Update `.env.example` file with your environment variables
 - [ ] Create a `.env` file, this file is used when running application to set the environment variables
 - [ ] Install dependencies using `yarn`
