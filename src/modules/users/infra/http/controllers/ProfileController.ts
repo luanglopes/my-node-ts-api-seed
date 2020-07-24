@@ -5,7 +5,7 @@ import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepo
 import UpdateUserService from '@modules/users/services/UpdateUserService'
 
 export default class ProfileController {
-  async index (req: Request, res: Response): Promise<void> {
+  async index (req: Request, res: Response): Promise<Response> {
     const { user: currentUser } = req
 
     const usersRepository = new UsersRepository()
@@ -14,10 +14,10 @@ export default class ProfileController {
 
     delete user.password
 
-    res.json(user)
+    return res.json(user)
   }
 
-  async update (req: Request, res: Response): Promise<void> {
+  async update (req: Request, res: Response): Promise<Response> {
     const { user: currentUser } = req
     const data = req.body
 
@@ -27,6 +27,6 @@ export default class ProfileController {
 
     delete user.password
 
-    res.json(user)
+    return res.json(user)
   }
 }

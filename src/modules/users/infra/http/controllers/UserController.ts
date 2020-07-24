@@ -7,7 +7,7 @@ import CreateUserService from '@modules/users/services/CreateUserService'
 import UsersRepository from '../../typeorm/repositories/UsersRepository'
 
 export default class UserController {
-  async index (req: Request, res: Response): Promise<void> {
+  async index (req: Request, res: Response): Promise<Response> {
     const { page, size } = req.query
     const parsedSize = size ? +size : undefined
     const parsedPage = page ? +page : undefined
@@ -19,7 +19,7 @@ export default class UserController {
       size: parsedSize,
     })
 
-    res.json(
+    return res.json(
       users.map((user) => {
         delete user.password
 
@@ -28,7 +28,7 @@ export default class UserController {
     )
   }
 
-  async getOne (req: Request, res: Response): Promise<void> {
+  async getOne (req: Request, res: Response): Promise<Response> {
     const { id } = req.params
 
     const showBookService = container.resolve(ShowUserService)
@@ -37,10 +37,10 @@ export default class UserController {
 
     delete user.password
 
-    res.json(user)
+    return res.json(user)
   }
 
-  async create (req: Request, res: Response): Promise<void> {
+  async create (req: Request, res: Response): Promise<Response> {
     const data = req.body
 
     const createUserService = container.resolve(CreateUserService)
@@ -49,10 +49,10 @@ export default class UserController {
 
     delete user.password
 
-    res.status(201).json(user)
+    return res.status(201).json(user)
   }
 
-  async update (req: Request, res: Response): Promise<void> {
+  async update (req: Request, res: Response): Promise<Response> {
     const { id } = req.params
     const data = req.body
 
@@ -62,16 +62,16 @@ export default class UserController {
 
     delete user.password
 
-    res.json(user)
+    return res.json(user)
   }
 
-  async delete (req: Request, res: Response): Promise<void> {
+  async delete (req: Request, res: Response): Promise<Response> {
     const { id } = req.params
 
     const usersRepository = new UsersRepository()
 
     await usersRepository.delete(+id)
 
-    res.sendStatus(204)
+    return res.sendStatus(204)
   }
 }

@@ -4,7 +4,7 @@ import { container } from 'tsyringe'
 import AuthenticateUserService from '@modules/users/services/AuthenticateUserService'
 
 export default class AuthController {
-  async login (req: Request, res: Response): Promise<void> {
+  async login (req: Request, res: Response): Promise<Response> {
     const { email, password } = req.body
 
     const authenticateUserService = container.resolve(AuthenticateUserService)
@@ -13,6 +13,6 @@ export default class AuthController {
 
     delete authData.user.password
 
-    res.json(authData)
+    return res.json(authData)
   }
 }
