@@ -1,8 +1,8 @@
 import AppError from '@shared/errors/AppError'
 import CreateUserService from './CreateUserService'
-import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository'
+import FakeUsersRepository from '../domain/repositories/fakes/FakeUsersRepository'
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider'
-import EUserRoles from '../enums/EUserRoles'
+import EUserRoles from '../domain/enums/EUserRoles'
 
 describe('CreateUserService', () => {
   let fakeUsersRepository: FakeUsersRepository

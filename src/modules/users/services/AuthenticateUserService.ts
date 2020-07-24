@@ -1,10 +1,10 @@
 import { injectable, inject } from 'tsyringe'
 
 import AppError from '@shared/errors/AppError'
-import IUsersRepository from '../repositories/IUsersRepository'
+import IUsersRepository from '../domain/repositories/IUsersRepository'
 import IHashProvider from '../providers/HashProvider/interfaces/IHashProvider'
 import IAuthTokenProvider from '../providers/TokenProvider/interfaces/IAuthTokenProvider'
-import IAuthenticationDTO from '../dtos/IAuthenticationDTO'
+import IAuthenticationDTO from '../domain/dtos/IAuthenticationDTO'
 
 interface IRequest {
   email: string

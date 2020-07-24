@@ -4,7 +4,7 @@ import {
   Column,
 } from 'typeorm'
 
-import EUserRoles from '@modules/users/enums/EUserRoles'
+import EUserRoles from '@modules/users/domain/enums/EUserRoles'
 
 @Entity('users')
 export default class User {

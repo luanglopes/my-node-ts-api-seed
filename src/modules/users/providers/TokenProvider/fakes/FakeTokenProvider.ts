@@ -1,4 +1,4 @@
-import IUserEntity from '@modules/users/entities/IUserEntity'
+import IUserEntity from '@modules/users/domain/entities/IUserEntity'
 import IAuthTokenProvider from '../interfaces/IAuthTokenProvider'
 
 export default class FakeTokenProvider implements IAuthTokenProvider {

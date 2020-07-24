@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-import EUserRoles from '@modules/users/enums/EUserRoles'
+import EUserRoles from '@modules/users/domain/enums/EUserRoles'
 
 export default class CreateUsers1590815340580 implements MigrationInterface {
   public async up (queryRunner: QueryRunner): Promise<void> {

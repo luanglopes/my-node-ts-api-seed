@@ -1,9 +1,9 @@
 import { injectable, inject } from 'tsyringe'
 
 import AppError from '@shared/errors/AppError'
-import IUpdateUserDTO from '../dtos/IUpdateUserDTO'
-import IUsersRepository from '../repositories/IUsersRepository'
-import IUserEntity from '../entities/IUserEntity'
+import IUpdateUserDTO from '../domain/dtos/IUpdateUserDTO'
+import IUsersRepository from '../domain/repositories/IUsersRepository'
+import IUserEntity from '../domain/entities/IUserEntity'
 import IHashProvider from '../providers/HashProvider/interfaces/IHashProvider'
 
 interface IRequest {

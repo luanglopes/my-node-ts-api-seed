@@ -1,8 +1,8 @@
 import AppError from '@shared/errors/AppError'
 import VerifyAuthTokenService from './ValidateAuthTokenService'
-import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository'
+import FakeUsersRepository from '../domain/repositories/fakes/FakeUsersRepository'
 import FakeTokenProvider from '../providers/TokenProvider/fakes/FakeTokenProvider'
-import EUserRoles from '../enums/EUserRoles'
+import EUserRoles from '../domain/enums/EUserRoles'
 
 describe('VerifyAuthTokenService', () => {
   let fakeUsersRepository: FakeUsersRepository

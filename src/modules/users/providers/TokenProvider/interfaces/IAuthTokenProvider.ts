@@ -1,4 +1,4 @@
-import IUserEntity from '@modules/users/entities/IUserEntity'
+import IUserEntity from '@modules/users/domain/entities/IUserEntity'
 
 export default interface IAuthTokenProvider {
   generateToken(user: IUserEntity): Promise<string>

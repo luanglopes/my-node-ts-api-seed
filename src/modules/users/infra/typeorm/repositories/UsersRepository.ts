@@ -2,10 +2,10 @@ import { Repository, getRepository } from 'typeorm'
 
 import IUsersRepository, {
   IFindByIdOptions,
-} from '@modules/users/repositories/IUsersRepository'
-import IUserEntity from '@modules/users/entities/IUserEntity'
+} from '@modules/users/domain/repositories/IUsersRepository'
+import IUserEntity from '@modules/users/domain/entities/IUserEntity'
 import IPageParamsDTO from '@shared/dtos/IPageParamsDTO'
-import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO'
+import ICreateUserDTO from '@modules/users/domain/dtos/ICreateUserDTO'
 import User from '../entities/User'
 
 export default class UsersRepository implements IUsersRepository {

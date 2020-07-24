@@ -1,9 +1,9 @@
 import AppError from '@shared/errors/AppError'
 import AuthenticateUserService from './AuthenticateUserService'
-import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository'
+import FakeUsersRepository from '../domain/repositories/fakes/FakeUsersRepository'
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider'
 import FakeTokenProvider from '../providers/TokenProvider/fakes/FakeTokenProvider'
-import IUserEntity from '../entities/IUserEntity'
+import IUserEntity from '../domain/entities/IUserEntity'
 
 describe('AuthenticateUserService', () => {
   let fakeUsersRepository: FakeUsersRepository
