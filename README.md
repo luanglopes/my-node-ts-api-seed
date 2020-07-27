@@ -4,7 +4,7 @@ This is a seed to start creating node APIs with TypeScript, Jest, DDD and SOLID
 
 ## Setup
 
-Don't forget to update the config files. To help you, here is a checklist that you can follow to starting building your API.
+Don't forget to update the config files. To help you, here is a checklist that you can follow to start building your API.
 
 - [ ] Update `package.json` file with your project info
 - [ ] Update `ormconfig.example.json` file with your database config and credentials
