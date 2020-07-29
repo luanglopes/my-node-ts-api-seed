@@ -5,18 +5,12 @@ import IAuthTokenProvider from '../providers/TokenProvider/interfaces/IAuthToken
 import IUsersRepository from '../repositories/IUsersRepository'
 import IUserEntity from '../entities/IUserEntity'
 
-interface ITokenPayload {
-  iat: number
-  exp: number
-  sub: string
-}
-
 interface IRequest {
   token: string
 }
 
 @injectable()
-export default class VerifyAuthTokenService {
+export default class ValidateAuthTokenService {
   constructor (
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
@@ -31,7 +25,7 @@ export default class VerifyAuthTokenService {
       throw new AppError('Invalid token', 401)
     }
 
-    const { sub: id } = decoded as ITokenPayload
+    const { sub: id } = decoded
 
     const user = await this.usersRepository.findById(+id)
 

@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken'
 import IUserEntity from '@modules/users/entities/IUserEntity'
 import authConfig from '@config/auth'
 import IAuthTokenProvider from '../interfaces/IAuthTokenProvider'
+import ITokenPayload from '../interfaces/ITokenPayload'
 
 export default class JWTTokenProvider implements IAuthTokenProvider {
   async generateToken (user: IUserEntity): Promise<string> {
@@ -26,7 +27,7 @@ export default class JWTTokenProvider implements IAuthTokenProvider {
     })
   }
 
-  async verifyToken (token: string): Promise<unknown | undefined> {
+  async verifyToken (token: string): Promise<ITokenPayload | undefined> {
     const decoded = await new Promise((resolve) => {
       const { secret } = authConfig.jwt
       jwt.verify(token, secret, (err, data) => {
@@ -38,6 +39,6 @@ export default class JWTTokenProvider implements IAuthTokenProvider {
       })
     })
 
-    return (decoded as Record<string, unknown>) || undefined
+    return (decoded as ITokenPayload) || undefined
   }
 }
