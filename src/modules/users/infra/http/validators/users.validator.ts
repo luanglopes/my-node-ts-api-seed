@@ -1,5 +1,5 @@
 import { Segments, Joi } from 'celebrate'
-import EUserRoles from '@modules/users/domain/enums/EUserRoles'
+import EUserRoles from '@modules/users/enums/EUserRoles'
 
 const usersValidators = {
   index: {

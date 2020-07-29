@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 
-import EUserRoles from '@modules/users/domain/enums/EUserRoles'
+import EUserRoles from '@modules/users/enums/EUserRoles'
 import AppError from '@shared/errors/AppError'
 import UsersRepository from '../../typeorm/repositories/UsersRepository'
 

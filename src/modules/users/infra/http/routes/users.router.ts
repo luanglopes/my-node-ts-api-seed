@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import EUserRoles from '@modules/users/domain/enums/EUserRoles'
+import EUserRoles from '@modules/users/enums/EUserRoles'
 import ensureValidation from '@shared/infra/http/middlewares/ensureValidation'
 import UserController from '../controllers/UserController'
 import ensureAuthenticated from '../middlewares/ensureAuthenticated'

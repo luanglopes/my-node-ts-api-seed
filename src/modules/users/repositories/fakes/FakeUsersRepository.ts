@@ -1,6 +1,6 @@
-import IUserEntity from '@modules/users/domain/entities/IUserEntity'
-import ICreateUserDTO from '@modules/users/domain/dtos/ICreateUserDTO'
-import EUserRoles from '@modules/users/domain/enums/EUserRoles'
+import IUserEntity from '@modules/users/entities/IUserEntity'
+import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO'
+import EUserRoles from '@modules/users/enums/EUserRoles'
 import IUsersRepository from '../IUsersRepository'
 
 export default class FakeUsersRepository implements IUsersRepository {

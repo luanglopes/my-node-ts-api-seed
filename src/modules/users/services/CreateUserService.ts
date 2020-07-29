@@ -1,9 +1,9 @@
 import { injectable, inject } from 'tsyringe'
 
 import AppError from '@shared/errors/AppError'
-import ICreateUserDTO from '../domain/dtos/ICreateUserDTO'
-import IUsersRepository from '../domain/repositories/IUsersRepository'
-import IUserEntity from '../domain/entities/IUserEntity'
+import ICreateUserDTO from '../dtos/ICreateUserDTO'
+import IUsersRepository from '../repositories/IUsersRepository'
+import IUserEntity from '../entities/IUserEntity'
 import IHashProvider from '../providers/HashProvider/interfaces/IHashProvider'
 
 @injectable()

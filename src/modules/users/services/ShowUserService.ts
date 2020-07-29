@@ -1,8 +1,8 @@
 import { injectable, inject } from 'tsyringe'
 
 import AppError from '@shared/errors/AppError'
-import IUserEntity from '../domain/entities/IUserEntity'
-import IUsersRepository from '../domain/repositories/IUsersRepository'
+import IUserEntity from '../entities/IUserEntity'
+import IUsersRepository from '../repositories/IUsersRepository'
 
 @injectable()
 export default class ShowUserService {

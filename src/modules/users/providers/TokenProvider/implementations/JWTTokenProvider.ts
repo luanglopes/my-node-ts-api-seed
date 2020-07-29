@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-import IUserEntity from '@modules/users/domain/entities/IUserEntity'
+import IUserEntity from '@modules/users/entities/IUserEntity'
 import authConfig from '@config/auth'
 import IAuthTokenProvider from '../interfaces/IAuthTokenProvider'
 
