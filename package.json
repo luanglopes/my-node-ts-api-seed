@@ -7,8 +7,8 @@
   "author": "Luan Lopes <luanglopes@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --no-notify src/shared/infra/http/server.ts",
-    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "dev": "tsnd -r tsconfig-paths/register --inspect --transpile-only --respawn --ignore-watch node_modules --no-notify src/shared/infra/http/server.ts",
+    "typeorm": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
     "start": "node -r dotenv/config ./dist/shared/infra/http/server.js",
     "test": "jest",
